@@ -1,0 +1,203 @@
+[
+    {
+        "label": "MongoClient",
+        "importPath": "pymongo",
+        "description": "pymongo",
+        "isExtraImport": true,
+        "detail": "pymongo",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Jinja2Templates",
+        "importPath": "fastapi.templating",
+        "description": "fastapi.templating",
+        "isExtraImport": true,
+        "detail": "fastapi.templating",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "RedirectResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "conn",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "note",
+        "importPath": "routes.note",
+        "description": "routes.note",
+        "isExtraImport": true,
+        "detail": "routes.note",
+        "documentation": {}
+    },
+    {
+        "label": "StaticFiles",
+        "importPath": "fastapi.staticfiles",
+        "description": "fastapi.staticfiles",
+        "isExtraImport": true,
+        "detail": "fastapi.staticfiles",
+        "documentation": {}
+    },
+    {
+        "label": "MONGO_URI",
+        "kind": 5,
+        "importPath": "config.db",
+        "description": "config.db",
+        "peekOfCode": "MONGO_URI = \"mongodb+srv://cbhardwajbe22_db_user:yZRGyR4QEpPsFyjE@notes.ty4poni.mongodb.net/notes\"\nconn = MongoClient(MONGO_URI)",
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "conn",
+        "kind": 5,
+        "importPath": "config.db",
+        "description": "config.db",
+        "peekOfCode": "conn = MongoClient(MONGO_URI)",
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "Note",
+        "kind": 6,
+        "importPath": "models.note",
+        "description": "models.note",
+        "peekOfCode": "class Note(BaseModel):\n    title: str = Field(..., min_length=1, max_length=200)\n    desc: Optional[str] = Field(default=\"\")\n    important: bool = False",
+        "detail": "models.note",
+        "documentation": {}
+    },
+    {
+        "label": "read_item",
+        "kind": 2,
+        "importPath": "routes.note",
+        "description": "routes.note",
+        "peekOfCode": "def read_item(request: Request):\n    docs = conn.notes.notes.find({})\n    newDocs = []\n    for doc in docs:\n        newDocs.append({\n            \"id\": str(doc.get(\"_id\")),\n            \"title\": doc.get(\"title\", \"\"),\n            \"desc\": doc.get(\"desc\", \"\"),\n            \"important\": bool(doc.get(\"important\", False)),\n        })",
+        "detail": "routes.note",
+        "documentation": {}
+    },
+    {
+        "label": "note",
+        "kind": 5,
+        "importPath": "routes.note",
+        "description": "routes.note",
+        "peekOfCode": "note = APIRouter()\ntemplates = Jinja2Templates(directory=\"templates\")\n@note.get(\"/\", response_class=HTMLResponse)\ndef read_item(request: Request):\n    docs = conn.notes.notes.find({})\n    newDocs = []\n    for doc in docs:\n        newDocs.append({\n            \"id\": str(doc.get(\"_id\")),\n            \"title\": doc.get(\"title\", \"\"),",
+        "detail": "routes.note",
+        "documentation": {}
+    },
+    {
+        "label": "templates",
+        "kind": 5,
+        "importPath": "routes.note",
+        "description": "routes.note",
+        "peekOfCode": "templates = Jinja2Templates(directory=\"templates\")\n@note.get(\"/\", response_class=HTMLResponse)\ndef read_item(request: Request):\n    docs = conn.notes.notes.find({})\n    newDocs = []\n    for doc in docs:\n        newDocs.append({\n            \"id\": str(doc.get(\"_id\")),\n            \"title\": doc.get(\"title\", \"\"),\n            \"desc\": doc.get(\"desc\", \"\"),",
+        "detail": "routes.note",
+        "documentation": {}
+    },
+    {
+        "label": "NoteEntity",
+        "kind": 2,
+        "importPath": "schemas.note",
+        "description": "schemas.note",
+        "peekOfCode": "def NoteEntity(item) -> dict:\n    return {\n        \"id\": str(item.get(\"_id\")),\n        \"title\": item.get(\"title\", \"\"),\n        \"desc\": item.get(\"desc\", \"\"),\n        \"important\": bool(item.get(\"important\", False)),\n    }\ndef NotesEntity(items) -> list:\n    return [NoteEntity(item) for item in items]",
+        "detail": "schemas.note",
+        "documentation": {}
+    },
+    {
+        "label": "NotesEntity",
+        "kind": 2,
+        "importPath": "schemas.note",
+        "description": "schemas.note",
+        "peekOfCode": "def NotesEntity(items) -> list:\n    return [NoteEntity(item) for item in items]",
+        "detail": "schemas.note",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "index",
+        "description": "index",
+        "peekOfCode": "app = FastAPI()\napp.include_router(note)\napp.mount(\"/static\", StaticFiles(directory=\"static\"), name=\"static\")",
+        "detail": "index",
+        "documentation": {}
+    }
+]

@@ -28,3 +28,5 @@ Frontend: Jinja2 + Bootstrap 5
 Database: MongoDB
 
 ORM/Driver: PyMongo
+
+<img width="1919" height="529" alt="image" src="https://github.com/user-attachments/assets/3861a575-7d4d-4169-bfe1-96e705f1f293" />
